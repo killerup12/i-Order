@@ -4,13 +4,15 @@ import 'package:i_order/presentation/blocs/splash/splash_bloc.dart';
 import 'package:i_order/tools/theme/MainTheme.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({Key key}) : super(key: key);
+  SplashScreen({Key key}) : super(key: key);
 
   static const String APP_LOGO = "assets/images/app_logo.png";
 
+  final _bloc = locator<SplashBloc>();
+
   @override
   Widget build(BuildContext context) {
-    locator<SplashBloc>().goToNextPage();
+    _bloc..goToNextPage();
 
     return Scaffold(
       backgroundColor: MainTheme.backgroundColor,
