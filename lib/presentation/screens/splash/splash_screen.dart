@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    _bloc..goToNextPage();
+    _bloc.goToNextPage();
 
     return Scaffold(
       backgroundColor: MainTheme.backgroundColor,
