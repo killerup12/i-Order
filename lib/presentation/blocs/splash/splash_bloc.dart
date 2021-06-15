@@ -1,7 +1,7 @@
 import 'package:i_order/presentation/navigation/navigation_manager.dart';
 import 'package:i_order/presentation/navigation/routes.dart';
 
-import '../base.dart';
+import '../../../domain/models/bloc/base.dart';
 
 class SplashBloc implements Bloc {
   final NavigationManager navigationManager;

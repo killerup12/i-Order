@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:i_order/presentation/blocs/bloc_provider.dart';
+import 'package:i_order/domain/models/bloc/bloc_provider.dart';
 import 'package:i_order/presentation/blocs/splash/splash_bloc.dart';
 import 'package:i_order/tools/theme/main_theme.dart';
 

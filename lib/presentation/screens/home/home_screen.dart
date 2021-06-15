@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:i_order/domain/models/bloc/bloc_provider.dart';
+import 'package:i_order/presentation/blocs/blocs.dart';
 import 'package:i_order/tools/theme/main_theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,13 +15,23 @@ class _HomeScreenState extends State<HomeScreen> {
   static const String HISTORY_ICON = "assets/images/history_icon.png";
   // static const String PROFILE_ICON = "assets/images/profile_icon.png";
 
+  HomeBloc bloc;
+
   int _currentTabIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    bloc = BlocProvider.of<HomeBloc>(context);
+    bloc.selectSubScreen(_currentTabIndex);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: MainTheme.backgroundColor,
+      body: StreamBuilder(
+        stream: bloc.locationStream,
+        builder: (context, snapshot) => snapshot.data,
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: MainTheme.bottomNavigationColor,
@@ -31,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Image.asset(ORDER_ICON, height: 60),
             activeIcon: Image.asset(ORDER_ICON, height: 60),
-            label: "Make Order"
+            label: "Order"
           ),
           BottomNavigationBarItem(
               icon: Image.asset(HISTORY_ICON, height: 60),
@@ -52,6 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void _onTap(int index) {
     setState(() {
       _currentTabIndex = index;
+      bloc.selectSubScreen(_currentTabIndex);
     });
   }
 }

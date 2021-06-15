@@ -28,9 +28,11 @@ void _initBlocs() {
     locator()
   ));
 
-  locator.registerFactory<HomeBloc>(() => HomeBloc(
+  locator.registerFactory<HomeBloc>(() => HomeBloc());
 
-  ));
+  locator.registerFactory<OrderBloc>(() => OrderBloc());
+
+  locator.registerFactory<HistoryBloc>(() => HistoryBloc());
 }
 
 void _initUtils() {

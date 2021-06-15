@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:i_order/di/locator.dart';
-import 'package:i_order/presentation/blocs/bloc_provider.dart';
+import 'package:i_order/domain/models/bloc/bloc_provider.dart';
 import 'package:i_order/presentation/blocs/blocs.dart';
 import 'package:i_order/presentation/navigation/routes.dart';
 import 'package:i_order/presentation/screens/home/home_screen.dart';
@@ -37,10 +37,4 @@ class Router {
         throw RouteNotFoundException(route);
     }
   }
-}
-
-Future<String> login = getFutureLog();
-
-Future<String> getFutureLog() async {
-  return "login";
 }
