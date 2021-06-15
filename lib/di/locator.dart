@@ -30,9 +30,7 @@ void _initBlocs() {
 
   locator.registerFactory<HomeBloc>(() => HomeBloc());
 
-  locator.registerFactory<OrderBloc>(() => OrderBloc(
-    locator()
-  ));
+  locator.registerFactory<OrderBloc>(() => OrderBloc());
 
   locator.registerFactory<HistoryBloc>(() => HistoryBloc());
 }
