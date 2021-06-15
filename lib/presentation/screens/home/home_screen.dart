@@ -31,7 +31,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: StreamBuilder(
         stream: bloc.screenStream,
-        builder: (context, snapshot) => snapshot.data,
+        builder: (context, snapshot) {
+          return snapshot.hasData
+              ? snapshot.data
+              : CircularProgressIndicator();
+        },
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: MainTheme.bottomNavigationColor,

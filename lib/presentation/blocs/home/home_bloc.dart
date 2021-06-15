@@ -8,8 +8,6 @@ import 'package:i_order/presentation/blocs/blocs.dart';
 import 'package:i_order/presentation/navigation/routes.dart';
 
 class HomeBloc implements Bloc {
-  BlocProvider _selectedWidget;
-
   final _screenController = StreamController<BlocProvider>();
 
   Stream<BlocProvider> get screenStream => _screenController.stream;
@@ -22,19 +20,17 @@ class HomeBloc implements Bloc {
 
     switch (route) {
       case Routes.ORDER:
-        _selectedWidget = BlocProvider(
+        _screenController.sink.add(BlocProvider<OrderBloc>(
           bloc: locator<OrderBloc>(),
           child: OrderScreen(),
-        );
-        _screenController.sink.add(_selectedWidget);
+        ));
         break;
 
       case Routes.HISTORY:
-        _selectedWidget = BlocProvider(
+        _screenController.sink.add(BlocProvider<HistoryBloc>(
           bloc: locator<HistoryBloc>(),
           child: HistoryScreen(),
-        );
-        _screenController.sink.add(_selectedWidget);
+        ));
         break;
     }
   }
