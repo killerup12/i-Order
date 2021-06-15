@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder(
-        stream: bloc.locationStream,
+        stream: bloc.screenStream,
         builder: (context, snapshot) => snapshot.data,
       ),
       bottomNavigationBar: BottomNavigationBar(

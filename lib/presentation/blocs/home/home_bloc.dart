@@ -12,7 +12,7 @@ class HomeBloc implements Bloc {
 
   final _screenController = StreamController<BlocProvider>();
 
-  Stream<BlocProvider> get locationStream => _screenController.stream;
+  Stream<BlocProvider> get screenStream => _screenController.stream;
 
   void selectSubScreen(int index) {
     final route = (index == 0)
