@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:i_order/di/locator.dart';
+import 'package:i_order/presentation/blocs/bloc_provider.dart';
 import 'package:i_order/presentation/blocs/splash/splash_bloc.dart';
-import 'package:i_order/tools/theme/MainTheme.dart';
+import 'package:i_order/tools/theme/main_theme.dart';
 
 class SplashScreen extends StatelessWidget {
   SplashScreen({Key key}) : super(key: key);
 
   static const String APP_LOGO = "assets/images/app_logo.png";
 
-  final _bloc = locator<SplashBloc>();
-
   @override
   Widget build(BuildContext context) {
-    _bloc.goToNextPage();
+    BlocProvider.of<SplashBloc>(context).goToNextPage();
 
     return Scaffold(
       backgroundColor: MainTheme.backgroundColor,

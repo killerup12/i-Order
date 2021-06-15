@@ -15,12 +15,13 @@ void main() async {
 class ICocker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    print(Routes.SPLASH);
     return  MaterialApp(
           debugShowCheckedModeBanner: false,
           title: "i-Cocker",
           navigatorKey: locator(),
           initialRoute: Routes.SPLASH,
-          onGenerateRoute: locator<Router>().onGenerateRoute,
+          onGenerateRoute: locator<Router>().onGenerateRoute
         );
   }
 }
